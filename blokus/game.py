@@ -518,4 +518,5 @@ def compete_agents(
 
 
 if __name__ == "__main__":
-    compete_agents([biggest, biggest], n=1000)
+    scores = compete_agents([biggest, biggest], n=100)
+    print(f"{np.mean(scores, axis=0)} +/ {np.std(scores, axis=0)}, {np.sum(scores[:, 0] > scores[:, 1]) / scores.shape[0]}")
