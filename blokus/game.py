@@ -83,12 +83,14 @@ class Board:
         overview[:, -1] = -1
 
         axes[0].imshow(overview, cmap=self.cm, vmin=-1, vmax=self.num_players)
+        axes[0].set_title("Pieces on board")
 
         for i in range(self.num_players):
             player_image = self.grid[i, 2] * -1
             player_image += self.grid[i, 1] * 2
             player_image -= self.grid[i, 0]
             axes[i + 1].imshow(player_image, cmap=piece_cm)
+            axes[i + 1].set_title(f"Player {i} board view")
 
     def to_dict(self):
         return {"grid": self.grid.tolist()}
