@@ -6,8 +6,8 @@ from typing import List, Tuple, Callable
 import json
 from typing import NamedTuple
 import copy
-from blokus.profiler import Timer
-from blokus.pieces import Piece, PIECES
+from .profiler import Timer
+from .pieces import Piece, PIECES
 
 
 piece_colors = [(0, 1, 0), (1, 1, 1), (0, 0, 0), (1, 0, 0)]
