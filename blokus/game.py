@@ -30,8 +30,10 @@ class Board:
         self.num_players = num_players
         self.init_squares = init_squares
         self.grid = np.zeros((num_players, 3, height, width), dtype="float32")
+        # set the live squares to the starting squares
         for i, (r, c) in enumerate(init_squares):
             self.grid[i, 2, r, c] = 1.0
+        # mark the edge of the board as dead squares
         self.grid[:, 1, 0, :] = 1.0
         self.grid[:, 1, -1, :] = 1.0
         self.grid[:, 1, :, 0] = 1.0
@@ -194,7 +196,7 @@ class Blokus:
             "board": self.board.to_dict(),
             "current_player": self.cur_player,
             "scores": self.scores,
-            "available_moves": self.avail_moves,
+            "available_moves": self._available_moves,
         }
         return json.dumps(rep)
 
